@@ -1,0 +1,20 @@
+package cn.xylvvv.gulimall.member.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import cn.xylvvv.common.utils.PageUtils;
+import cn.xylvvv.gulimall.member.entity.GrowthChangeHistoryEntity;
+
+import java.util.Map;
+
+/**
+ * 成长值变化历史记录
+ *
+ * @author xylvvv
+ * @email lxy2011w@gmail.com
+ * @date 2022-01-23 20:41:02
+ */
+public interface GrowthChangeHistoryService extends IService<GrowthChangeHistoryEntity> {
+
+    PageUtils queryPage(Map<String, Object> params);
+}
+

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123qwe
+    url: jdbc:mysql://localhost:3306/mall_oms
+
+
+mybatis-plus:
+  mapper-locations: classpath://mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto # 主键自增
+
+server:
+  port: 9000
