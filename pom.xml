@@ -19,20 +19,21 @@
 
     <groupId>cn.xylvvv</groupId>
     <artifactId>guli-mall</artifactId>
-    <version>${mall.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>guli-mall</name>
     <description>parent</description>
 
     <packaging>pom</packaging>
 
     <properties>
-        <mall.version>0.0.1-SNAPSHOT</mall.version>
         <java.version>11</java.version>
-        <spring.cloud-version>2021.0.0</spring.cloud-version>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
         <!--和java.version作用类似，但优先级要更大点；其实java.version也是用来设置这俩值的-->
         <!--类似javac命令的-source和-target-->
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <mall.version>0.0.1-SNAPSHOT</mall.version>
         <mybatis-plus.version>3.5.0</mybatis-plus.version>
         <mysql.version>8.0.23</mysql.version>
         <lombok.version>1.18.18</lombok.version>
@@ -46,7 +47,14 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud-version}</version>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
