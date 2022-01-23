@@ -8,6 +8,7 @@
         <module>mall-order</module>
         <module>mall-product</module>
         <module>mall-ware</module>
+        <module>mall-common</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -18,19 +19,25 @@
 
     <groupId>cn.xylvvv</groupId>
     <artifactId>guli-mall</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${mall.version}</version>
     <name>guli-mall</name>
     <description>parent</description>
 
     <packaging>pom</packaging>
 
     <properties>
+        <mall.version>0.0.1-SNAPSHOT</mall.version>
         <java.version>11</java.version>
         <spring.cloud-version>2021.0.0</spring.cloud-version>
         <!--和java.version作用类似，但优先级要更大点；其实java.version也是用来设置这俩值的-->
         <!--类似javac命令的-source和-target-->
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <mybatis-plus.version>3.5.0</mybatis-plus.version>
+        <mysql.version>8.0.23</mysql.version>
+        <lombok.version>1.18.18</lombok.version>
+        <http.components.version>4.4.13</http.components.version>
+        <commons.lang.version>2.6</commons.lang.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +49,41 @@
                 <version>${spring.cloud-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.xylvvv</groupId>
+                <artifactId>mall-common</artifactId>
+                <version>${mall.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${http.components.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
