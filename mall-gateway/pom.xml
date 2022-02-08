@@ -24,7 +24,7 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <!--解决当前Spring Cloud版本(2020)下，Nacos不兼容Gateway自带Ribbon的问题-->
+        <!--解决当前Spring Cloud版本(2020)下，无法通过lb路由到指定微服务而出现503错误的问题-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-loadbalancer</artifactId>
