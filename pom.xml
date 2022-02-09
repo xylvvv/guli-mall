@@ -11,6 +11,7 @@
         <module>mall-common</module>
         <module>mall-gateway</module>
         <module>renren-fast</module>
+        <module>mall-third-party</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -41,6 +42,7 @@
         <lombok.version>1.18.18</lombok.version>
         <http.components.version>4.4.13</http.components.version>
         <commons.lang.version>2.6</commons.lang.version>
+        <alicloud-oss.version>2.2.0.RELEASE</alicloud-oss.version>
     </properties>
 
     <dependencyManagement>
@@ -94,6 +96,13 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons.lang.version}</version>
+            </dependency>
+
+            <!--阿里云OSS-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
+                <version>${alicloud-oss.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
