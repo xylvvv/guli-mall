@@ -47,7 +47,7 @@ public class OssController {
 
         Map<String, String> respMap = null;
         try {
-            long expireTime = 30;
+            long expireTime = 60;
             long expireEndTime = System.currentTimeMillis() + expireTime * 1000;
             Date expiration = new Date(expireEndTime);
             PolicyConditions policyConds = new PolicyConditions();
