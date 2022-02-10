@@ -6,6 +6,7 @@ import java.util.Map;
 
 import cn.xylvvv.common.valid.AddGroup;
 import cn.xylvvv.common.valid.UpdateGroup;
+import cn.xylvvv.common.valid.UpdateStatusGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -86,6 +87,16 @@ public class BrandController {
     @RequestMapping("/update")
     public R update(@Validated(UpdateGroup.class) @RequestBody BrandEntity brand){
 		brandService.updateById(brand);
+
+        return R.ok();
+    }
+
+    /**
+     * 修改状态
+     */
+    @RequestMapping("/update/status")
+    public R updateStatus(@Validated(UpdateStatusGroup.class) @RequestBody BrandEntity brand){
+        brandService.updateById(brand);
 
         return R.ok();
     }

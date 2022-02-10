@@ -1,7 +1,9 @@
 package cn.xylvvv.gulimall.product.entity;
 
 import cn.xylvvv.common.valid.AddGroup;
+import cn.xylvvv.common.valid.ListValue;
 import cn.xylvvv.common.valid.UpdateGroup;
+import cn.xylvvv.common.valid.UpdateStatusGroup;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -50,6 +52,8 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
+	@NotNull(groups = {AddGroup.class, UpdateStatusGroup.class})
+	@ListValue(values = {0, 1}, groups = {AddGroup.class, UpdateStatusGroup.class})
 	private Integer showStatus;
 	/**
 	 * 检索首字母
