@@ -58,20 +58,20 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@Valid @RequestBody BrandEntity brand, BindingResult result){
-        if (result.hasErrors()) {
-            HashMap<String, String> map = new HashMap<>();
-            // 获取校验的错误结果
-            result.getFieldErrors().forEach((item) -> {
-                // FieldError获取错误提示
-                String message = item.getDefaultMessage();
-                // 获取错误的属性名称
-                String field = item.getField();
-                map.put(field, message);
-            });
-
-            return R.error(400, "提交的数据不合法").put("data", map);
-        }
+    public R save(@Valid @RequestBody BrandEntity brand){
+//        if (result.hasErrors()) {
+//            HashMap<String, String> map = new HashMap<>();
+//            // 获取校验的错误结果
+//            result.getFieldErrors().forEach((item) -> {
+//                // FieldError获取错误提示
+//                String message = item.getDefaultMessage();
+//                // 获取错误的属性名称
+//                String field = item.getField();
+//                map.put(field, message);
+//            });
+//
+//            return R.error(400, "提交的数据不合法").put("data", map);
+//        }
 		brandService.save(brand);
 
         return R.ok();
