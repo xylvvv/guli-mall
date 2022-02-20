@@ -1,9 +1,11 @@
 package cn.xylvvv.gulimall.ware.service;
 
+import cn.xylvvv.gulimall.ware.vo.SkuHasStockVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.xylvvv.common.utils.PageUtils;
 import cn.xylvvv.gulimall.ware.entity.WareSkuEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +18,7 @@ import java.util.Map;
 public interface WareSkuService extends IService<WareSkuEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<SkuHasStockVo> getSkuHasStock(List<Long> skuIds);
 }
 

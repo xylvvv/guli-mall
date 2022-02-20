@@ -38,13 +38,14 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <mall.version>0.0.1-SNAPSHOT</mall.version>
-        <mybatis-plus.version>3.5.0</mybatis-plus.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <mysql.version>8.0.23</mysql.version>
         <lombok.version>1.18.18</lombok.version>
         <http.components.version>4.4.13</http.components.version>
         <commons.lang.version>2.6</commons.lang.version>
         <alicloud-oss.version>2.2.0.RELEASE</alicloud-oss.version>
         <elasticsearch.version>7.12.1</elasticsearch.version>
+        <fastjson.version>1.2.72</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +113,12 @@
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>${elasticsearch.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
