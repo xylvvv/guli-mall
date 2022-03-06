@@ -1,5 +1,6 @@
 package cn.xylvvv.gulimall.product.service;
 
+import cn.xylvvv.gulimall.product.vo.Catalogs2Vo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.xylvvv.common.utils.PageUtils;
 import cn.xylvvv.gulimall.product.entity.CategoryEntity;
@@ -29,5 +30,11 @@ public interface CategoryService extends IService<CategoryEntity> {
      * @return
      */
     Long[] findCatelogPath(Long catelogId);
+
+    /**
+     * 查找二级、三级分类，首页显示
+     * @return
+     */
+    Map<String, List<Catalogs2Vo>> getCatalogJson();
 }
 
