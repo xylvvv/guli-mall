@@ -1,5 +1,6 @@
 package cn.xylvvv.gulimall.product.web;
 
+import cn.xylvvv.gulimall.product.entity.CategoryEntity;
 import cn.xylvvv.gulimall.product.service.CategoryService;
 import cn.xylvvv.gulimall.product.vo.Catalogs2Vo;
 import org.redisson.api.*;
@@ -28,6 +29,22 @@ public class IndexController {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+//    @GetMapping(value = {"/", "index.html"})
+//    private String indexPage(Model model) {
+//        //1、查出所有的一级分类
+//        List<CategoryEntity> categoryEntities = categoryService.getLevel1Categories();
+//        model.addAttribute("categories", categoryEntities);
+//        return "index";
+//    }
+
+    @GetMapping
+    @ResponseBody
+    private List<CategoryEntity> indexPage() {
+        //1、查出所有的一级分类
+        List<CategoryEntity> categoryEntities = categoryService.getLevel1Categories();
+        return categoryEntities;
+    }
 
     /**
      * 二级、三级分类数据

@@ -11,6 +11,13 @@ spring:
       server-addr: localhost:8848 # nacos服务端地址
   redis:
     host: localhost
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000 # 缓存存活时间，毫秒为单位
+      # key-prefix: CACHE_    # 如果指定了前缀就用我们指定的前缀，如果没有就默认使用缓存的名字作为前缀
+      use-key-prefix: true
+      cache-null-values: true # 是否缓存空值，防止缓存穿透
 
 
 mybatis-plus:
@@ -26,5 +33,4 @@ server:
 logging:
   level:
     cn.xylvvv.gulimall: debug
-
 
