@@ -6,6 +6,7 @@ import java.util.Map;
 import cn.xylvvv.common.exception.BizCodeEnum;
 import cn.xylvvv.gulimall.member.exception.PhoneException;
 import cn.xylvvv.gulimall.member.exception.UsernameException;
+import cn.xylvvv.gulimall.member.vo.MemberUserLoginVo;
 import cn.xylvvv.gulimall.member.vo.MemberUserRegisterVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +43,18 @@ public class MemberController {
         }
 
         return R.ok();
+    }
+
+    @PostMapping(value = "/login")
+    public R login(@RequestBody MemberUserLoginVo vo) {
+
+        MemberEntity memberEntity = memberService.login(vo);
+
+        if (memberEntity != null) {
+            return R.ok().setData(memberEntity);
+        } else {
+            return R.error(BizCodeEnum.LOGIN_ACCOUNT_PASSWORD_EXCEPTION.getCode(), BizCodeEnum.LOGIN_ACCOUNT_PASSWORD_EXCEPTION.getMsg());
+        }
     }
 
     /**

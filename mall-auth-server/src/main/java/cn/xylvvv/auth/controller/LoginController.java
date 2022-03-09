@@ -2,6 +2,7 @@ package cn.xylvvv.auth.controller;
 
 import cn.xylvvv.auth.feign.MemberFeignService;
 import cn.xylvvv.auth.feign.ThirdPartyFeignService;
+import cn.xylvvv.auth.vo.UserLoginVo;
 import cn.xylvvv.auth.vo.UserRegisterVo;
 import cn.xylvvv.common.constant.AuthServerConstant;
 import cn.xylvvv.common.exception.BizCodeEnum;
@@ -121,6 +122,30 @@ public class LoginController {
             errors.put("code", "验证码错误");
             attributes.addFlashAttribute("errors", errors);
             return "redirect:http://auth.gulimall.com/reg.html";
+        }
+    }
+
+    @PostMapping(value = "/login")
+    public String login(
+            UserLoginVo vo,
+            RedirectAttributes attributes
+//            HttpSession session
+    ) {
+
+        //远程登录
+        R login = memberFeignService.login(vo);
+
+        if (login.getCode() == 0) {
+//            MemberResponseVo data = login.getData("data", new TypeReference<MemberResponseVo>() {
+//            });
+//            session.setAttribute(LOGIN_USER, data);
+            return "redirect:http://gulimall.com";
+        } else {
+            Map<String, String> errors = new HashMap<>();
+            errors.put("msg", login.getData("msg", new TypeReference<String>() {
+            }));
+            attributes.addFlashAttribute("errors", errors);
+            return "redirect:http://auth.gulimall.com/login.html";
         }
     }
 }
