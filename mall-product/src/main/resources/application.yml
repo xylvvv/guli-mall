@@ -18,6 +18,8 @@ spring:
       # key-prefix: CACHE_    # 如果指定了前缀就用我们指定的前缀，如果没有就默认使用缓存的名字作为前缀
       use-key-prefix: true
       cache-null-values: true # 是否缓存空值，防止缓存穿透
+  session:
+    store-type: redis
 
 
 mybatis-plus:
@@ -33,4 +35,3 @@ server:
 logging:
   level:
     cn.xylvvv.gulimall: debug
-

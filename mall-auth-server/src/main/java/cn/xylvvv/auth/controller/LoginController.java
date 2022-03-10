@@ -7,6 +7,7 @@ import cn.xylvvv.auth.vo.UserRegisterVo;
 import cn.xylvvv.common.constant.AuthServerConstant;
 import cn.xylvvv.common.exception.BizCodeEnum;
 import cn.xylvvv.common.utils.R;
+import cn.xylvvv.common.vo.MemberResponseVo;
 import com.alibaba.fastjson.TypeReference;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -20,11 +21,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+
+import static cn.xylvvv.common.constant.AuthServerConstant.LOGIN_USER;
 
 @Controller
 public class LoginController {
@@ -128,17 +132,17 @@ public class LoginController {
     @PostMapping(value = "/login")
     public String login(
             UserLoginVo vo,
-            RedirectAttributes attributes
-//            HttpSession session
+            RedirectAttributes attributes,
+            HttpSession session
     ) {
 
         //远程登录
         R login = memberFeignService.login(vo);
 
         if (login.getCode() == 0) {
-//            MemberResponseVo data = login.getData("data", new TypeReference<MemberResponseVo>() {
-//            });
-//            session.setAttribute(LOGIN_USER, data);
+            MemberResponseVo data = login.getData("data", new TypeReference<MemberResponseVo>() {
+            });
+            session.setAttribute(LOGIN_USER, data);
             return "redirect:http://gulimall.com";
         } else {
             Map<String, String> errors = new HashMap<>();

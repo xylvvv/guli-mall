@@ -6,6 +6,8 @@ spring:
       server-addr: localhost:8848 # nacos服务端地址
   redis:
     host: localhost
+  session:
+    store-type: redis
 
 server:
   port: 20000

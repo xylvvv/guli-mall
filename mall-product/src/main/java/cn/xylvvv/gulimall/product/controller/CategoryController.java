@@ -31,6 +31,13 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+//    @GetMapping("/test/session")
+//    public MemberResponseVo testSession(HttpSession session) {
+//        MemberResponseVo testUser = (MemberResponseVo) session.getAttribute("testUser");
+//        System.out.println(testUser);
+//        return testUser;
+//    }
+
     /**
      * 列表
      */
